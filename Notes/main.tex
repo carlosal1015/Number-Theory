@@ -1,0 +1,56 @@
+\documentclass[oneside]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{amsfonts}
+\usepackage{amsthm,mathabx}
+\newtheorem{definition}{Definición}
+\newtheorem{theorem}{Teorema}
+\title{Teoría de números enteros}
+\author{Oromion}
+\begin{document}
+\maketitle
+\chapter{Divisibilidad}
+
+\begin{definition}
+Un entero $b$ es divisible por un entero $a$, no cero, si existe un entero $x$ tal que $b=ax$ y se escribe a $a\divides b$. En el caso en que $b$ no sea divisible por a se escribe $a\notdivides b$.
+\end{definition}
+
+\begin{theorem}
+\noindent
+Sean $\{a,b,c,x,y\}\subset\mathbb{Z}$, las siguientes proposiciones son verdaderas:
+\begin{enumerate}[(1)]\label{def:1}
+	\item Si $a\divides b$, entonces $a\divides bc$ para cualquier entero $c$.
+	
+	\begin{proof}[Prueba:]
+	\noindent
+	
+	De la definición (\ref{def:1}) se sigue que existe algún entero $m$ tal que $b=a\cdot m$. Ahora, sea $c\in\mathbb{Z}$ fijo y arbitrario. Así, el número $bc=a\cdot m(c)$ y de (\ref{def:1}) existe un entero $d=m(c)$ tal que $b=a\cdot d$, por lo tanto $a\divides bc$.
+	\end{proof}
+
+	\item Si $a\divides b$ y $b\divides c$, entonces $a\divides c$.
+	
+	\begin{proof}[Prueba:]
+	\noindent
+	
+	De la definición (\ref{def:1}) se sigue que existen los entero $m_1$ y $m_2$ tales que $b=a\cdot m_1$ y $c=b\cdot m_2$. Pero $c$ es igual a $b\cdot m_2=(a\cdot m_1)\cdot m_2=a\cdot(m_1\cdot m_2)$, es decir, existe un entero $m_3=m_1\cdot m_2$ tal que $c=a\cdot m_3$, por lo tanto, de (\ref{def:1}) $a\divides c$. 
+	\end{proof}
+
+	\item Si $a\divides \left(b_1,b_2,\ldots,b_n\right)$ para algún $n\in\mathbb{N}$, entonces $a\divides \displaystyle\sum_{j=1}^{n}b_jx_j$ para cualesquiera $x_j$.
+	
+	\begin{proof}[Prueba:]
+	\noindent
+	
+	De la definición (\ref{def:1}) se sigue que existen $n$ números $m_1,m_2,\ldots, m_n$ tales que $b_j=a\cdot m_j$ cuando $j\in\{1,2,\ldots,n\}$.
+	\end{proof}
+
+	\item Si $a\divides b$ y $b\divides a$, entonces $a=\pm b$.
+	
+	\begin{proof}[Prueba:]
+	\noindent
+	
+	\end{proof}
+\end{enumerate}
+\end{theorem}
+
+\end{document}

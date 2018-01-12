@@ -1,0 +1,164 @@
+\documentclass[oneside,a5paper]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{mathtools,amssymb,amsfonts,amsmath,amsthm,mathrsfs,bm,times,bbold,mathabx}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{enumitem}
+%\geometry{
+%	tmargin=1cm, 
+%	bmargin=0.5cm, 
+%	lmargin=0.5cm, 
+%	rmargin=1cm,
+%	headheight=1.5cm,
+%	headsep=0.8cm,
+%	footskip=0.5cm}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\hypersetup{pdfinfo={
+		Title={Apuntes de clases de Teoría de números},
+		Author={Jimmy Espinoza Palacios},
+		Keywords={Divisibilidad, Congruencias, Funciones aritméticas},
+		Subject={Teoría de números},
+		Producer={TeXstudio 2.12.6},
+		Creator={pdfTeX Version 3.14159265-2.6-1.40.18 TeX Live 2018 Debian}
+}}
+
+%\usepackage[citestyle=numeric,style=numeric,backend=biber]{biblatex}
+%\addbibresource{num.bib}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newtheorem{definition}{Definición}[chapter] %chapter, section
+\newtheorem{theorem}{Teorema}[chapter] %chapter section
+\pagestyle{empty}
+
+\author{\textcolor{DarkRed}{Oromion}\\
+	Facultad de Ciencias -- Universidad Nacional de Ingeniería}
+\title{\textcolor{DarkBlue}{Teoría de números Verano 2018}\thanks{\href{https://web.facebook.com/GEMFCUNI/}{Grupo Estudiantil de Matemática} y al \href{http://imca.edu.pe/portal/index.php/es/}{Instituto de Matemática y Ciencias Afines}}}
+\date{\textcolor{DarkMagenta}{Actualizado a la fecha \today}}
+
+\begin{document}
+\maketitle
+
+\chapter{Introducción}%Fecha: 11 de enero del 2018.
+
+\begin{enumerate}[font={\bfseries},label={\roman*.}]
+\item\label{pr:1} \emph{Principio de inducción matemática}
+	
+Sea $\mathcal{P}$ un conjunto de números naturales tal que
+
+\begin{enumerate}
+	\item $1\in\mathcal{P}$.
+	\item Si $n\in\mathcal{P}\implies n+1\in\mathcal{P}$.
+\end{enumerate}
+$\therefore \boxed{\mathcal{P}=\mathbb{N}}$.
+\item\label{pr:2} \emph{Principio del buen orden}
+
+Si $\mathcal{A}$ es un conjunto no vacío de $\mathbb{N}$, entonces \emph{$\mathcal{A}$ posee un elemento mínimo}.
+\end{enumerate}
+
+\section{Divisibilidad}
+
+\begin{definition}\label{def:1.1}
+Sean $d$ y $n$ dos números enteros, se denotará
+\[\boxed{d\text{ divide a }n\iff\text{ existe }c\in\mathbb{Z}\text{ tal que }n=c\cdot n}\]
+como $a\divides n$.
+
+\noindent
+Si $d$ no divide a $n$, es decir, si $\forall c\in\mathbb{Z}\colon n\neq c\cdot d$, se denotará como $d\notdivides n$.
+\end{definition}
+
+\section{Propiedades de la operación $|$}
+
+\begin{enumerate}[font={\bfseries},label={\arabic*)}]
+\item\label{prop:1} $n\divides n$ para cualquier $n\in\mathbb{N}$ (Reflexividad).
+\item\label{prop:2} Si $d\divides n$ y $n\divides m$, entonces $d\divides m$. (Transitividad).
+\item\label{prop:3} Si $d\divides n$ y $d\divides m$, entonces $d\divides an+bm$ $\forall a,b\in\mathbb{Z}$.
+\item\label{prop:4} Si $d\divides n$, entonces $ad\divides an$.
+\item\label{prop:5} Si $ad\divides an$ con $a\neq0$, entonces $d\divides n$.
+\item\label{prop:6} $1\divides n$ para cualquier $n\in\mathbb{N}$.
+\item\label{prop:7} $n\divides 0$ para cualquier $n\in\mathbb{N}$.
+\item\label{prop:8} Si $0\divides n$, entonces $n=0$.
+\item\label{prop:9} Si $d\divides n$ y $n\neq0$, entonces $|d|\leq|n|$.
+\item\label{prop:10} Si $d\divides n$ y $n\divides d$, entonces $|d|=|n|$.
+\item\label{prop:11} Si $d\divides n$ con $d\neq0$, entonces $\left(\frac{n}{d}\right)\divides n$.
+\end{enumerate}
+
+\section{Máximo común divisor}
+
+\begin{definition}\label{def:1.2}
+Sean $a$, $b$ y $d$ números enteros. Si $d\divides a$ y $d\divides b$, entonces $d$ es un divisor común de $a$ y $b$.
+\end{definition}
+
+\begin{theorem}\label{teo:1.1}
+Dados los números enteros $a$ y $b$, existe un divisor común $d$ de $a$ y $b$ de la forma $d=ax+by$ para cualesquiera $x,y\in\mathbb{Z}$.
+\begin{proof}[Prueba:]
+	 Por inducción matemática en $K=|a|+|b|$.
+	 
+	 Si $K=0$, entonces $a=b=0$, esto es, $d=0\cdot a+0\cdot b$. \checkmark
+	 
+	 \noindent
+	 Supongamos que se cumple para $K=0,1,\ldots,n-1$. (Hipótesis de inducción matemática).
+	 
+	 Demostraremos para $\boxed{K=n=|a|+|b|}$.
+	 
+	 \noindent
+	 Sin pérdida de generalidad, suponga que $|a|\geq|b|$. Así, si $|b|=0$, entonces $b=0$ y $|a|=n\implies d=n=(1)(\pm1)+0\cdot b$.
+	 
+	 Si $|b|\geq1$, entonces para los números $|a|-|b|$ y $|b|$ se cumple la hipótesis:
+	 \[\underbrace{|a|-|b|}_{\displaystyle\geq0}+|b|=|a|-\cancel{|b|}+\bcancel{|b|}=|a|<|a|+|b|=n.\]
+	 
+	 Existe $d\in\mathbb{Z}$, $d\divides |a|-|b|$ y $d\divides |b|$. Además:
+	 \begin{align*}
+	 	d&=\left(|a|-|b|\right)x^{\prime}+|b|y^{\prime}&\forall x^{\prime},y^{\prime}\in\mathbb{Z}\\
+	 	d&=|a|\underbrace{x^{\prime}}_{\displaystyle x^{\prime\prime}}+|b|\underbrace{y^{\prime}}_{\displaystyle y^{\prime\prime}}&\\
+	 	d&=\underbrace{|a|}_{a,-a}x^{\prime\prime}+\underbrace{|b|}_{b,-b}y^{\prime\prime}&\\
+	 	d&=a\underbrace{x^{\prime\prime}}_{\pm x^{\prime}}+b\underbrace{y^{\prime\prime}}_{\pm y^{\prime}}&
+	 \end{align*}
+	 Pero $d\divides |a|$ y $d\divides |b|$, así $d\divides |a|-|b|$.
+	 
+	 \noindent
+	 $\therefore$ Esto cumple la condición.
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{teo:1.2}
+	Sean $a$ y $b$ números enteros, existe solo un número $d\in\mathbb{Z}$ tal que
+	\begin{enumerate}[font={\bfseries},label={\arabic*)}]
+		\item\label{teo1.2:1} $d\geq0$.
+		\item\label{teo1.2:2} $d\divides a$ y $d\divides b$.
+		\item\label{teo1.2:3} Si $e\divides a$ y $e\divides b$, entonces $e\divides d$ para cualquier $e\in\mathbb{Z}$.
+	\end{enumerate}
+
+	\begin{proof}[Prueba:]
+		Por la definición~\ref{def:1.2} y por el teorema~\ref{teo:1.1}, existe un $d$ con las siguientes propiedades:
+		\begin{multicols}{3}
+			$d\divides a$
+			
+			$d\divides b$
+			
+			$d=ax+by$
+		\end{multicols}
+	\noindent
+	Es claro que $-d$ también cumple esto. Elegimos $|d|=ax^{\prime}+by^{\prime}$ que cumpla \ref{teo1.2:1} y \ref{teo1.2:2}.
+	
+	\noindent
+	Si $e\divides a$ y $e\divides b$, entonces de la propiedad~\ref{prop:3} $e\divides ax^{\prime}+by^{\prime}=|d|$.
+	
+	\noindent
+	Así, $e\divides |d|$, en consecuencia $e\divides d$ y $|d|$ satisface~\ref*{teo1.2:3}.
+	
+	\noindent
+	Si existiese un $d^{\prime}$ que cumpla \ref{teo1.2:1}, \ref{teo1.2:2} y \ref{teo1.2:3}, entonces de la afirmación \ref{teo1.2:3}:
+	\[d\divides a\text{ y }d\divides b\implies d\divides d^{\prime}.\]
+	
+	\noindent
+	De forma similar:
+	\[d^{\prime}\divides a\text{ y }d^{\prime}\divides b\implies d^{\prime}\divides d.\]
+	Pero de la propiedad~\ref{prop:10}
+	\end{proof}
+\end{theorem}
+\end{document}
