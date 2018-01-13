@@ -1,51 +1,19 @@
 \documentclass[oneside,a5paper]{memoir}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{libertine}
-\usepackage[spanish]{babel}
-\spanishdatedel
-\usepackage{mathtools,amssymb,amsfonts,amsmath,amsthm,mathrsfs,bm,times,bbold,mathabx}
-\usepackage[makeroom]{cancel}
-\usepackage{multicol}
-\usepackage{geometry}
-\usepackage{enumitem}
-%\geometry{
-%	tmargin=1cm, 
-%	bmargin=0.5cm, 
-%	lmargin=0.5cm, 
-%	rmargin=1cm,
-%	headheight=1.5cm,
-%	headsep=0.8cm,
-%	footskip=0.5cm}
-\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
-\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
-\hypersetup{pdfinfo={
-		Title={Apuntes de clases de Teoría de números},
-		Author={Jimmy Espinoza Palacios},
-		Keywords={Divisibilidad, Congruencias, Funciones aritméticas},
-		Subject={Teoría de números},
-		Producer={TeXstudio 2.12.6},
-		Creator={pdfTeX Version 3.14159265-2.6-1.40.18 TeX Live 2018 Debian}
-}}
 
-%\usepackage[citestyle=numeric,style=numeric,backend=biber]{biblatex}
-%\addbibresource{num.bib}
-\renewcommand{\qedsymbol}{$\blacksquare$}
-\newtheorem{definition}{Definición}[chapter] %chapter, section
-\newtheorem{theorem}{Teorema}[chapter] %chapter section
-\pagestyle{empty}
+\input{paquetes.tex}
 
-\author{\textcolor{DarkRed}{Oromion}\\
-	Facultad de Ciencias -- Universidad Nacional de Ingeniería}
-\title{\textcolor{DarkBlue}{Teoría de números Verano 2018}\thanks{\href{https://web.facebook.com/GEMFCUNI/}{Grupo Estudiantil de Matemática} y al \href{http://imca.edu.pe/portal/index.php/es/}{Instituto de Matemática y Ciencias Afines}}}
+\author{\textcolor{DarkRed}{Estudiante Oromion}\thanks{E-mail: {\href{mailto:caznaranl@uni.pe}{caznaranl\MVAt uni.pe}}.}}
+
+\title{\textcolor{DarkBlue}{Apuntes de Teoría de números}\thanks{Gracias al \href{https://web.facebook.com/GEMFCUNI/}{Grupo Estudiantil de Matemática} y al \href{http://imca.edu.pe/portal/index.php/es/}{Instituto de Matemática y Ciencias Afines}.}}
 \date{\textcolor{DarkMagenta}{Actualizado a la fecha \today}}
 
 \begin{document}
 \maketitle
-
+%Verano 2018
 \chapter{Introducción}%Fecha: 11 de enero del 2018.
 
 \begin{enumerate}[font={\bfseries},label={\roman*.}]
+
 \item\label{pr:1} \emph{Principio de inducción matemática}
 	
 Sea $\mathcal{P}$ un conjunto de números naturales tal que
@@ -54,111 +22,354 @@ Sea $\mathcal{P}$ un conjunto de números naturales tal que
 	\item $1\in\mathcal{P}$.
 	\item Si $n\in\mathcal{P}\implies n+1\in\mathcal{P}$.
 \end{enumerate}
+
 $\therefore \boxed{\mathcal{P}=\mathbb{N}}$.
+
 \item\label{pr:2} \emph{Principio del buen orden}
 
 Si $\mathcal{A}$ es un conjunto no vacío de $\mathbb{N}$, entonces \emph{$\mathcal{A}$ posee un elemento mínimo}.
+
 \end{enumerate}
 
 \section{Divisibilidad}
 
 \begin{definition}\label{def:1.1}
+
 Sean $d$ y $n$ dos números enteros, se denotará
+
 \[\boxed{d\text{ divide a }n\iff\text{ existe }c\in\mathbb{Z}\text{ tal que }n=c\cdot n}\]
 como $a\divides n$.
 
 \noindent
 Si $d$ no divide a $n$, es decir, si $\forall c\in\mathbb{Z}\colon n\neq c\cdot d$, se denotará como $d\notdivides n$.
+
 \end{definition}
 
-\section{Propiedades de la operación $|$}
+\subsection{Propiedades de la operación $|$}
 
 \begin{enumerate}[font={\bfseries},label={\arabic*)}]
+
 \item\label{prop:1} $n\divides n$ para cualquier $n\in\mathbb{N}$ (Reflexividad).
+
 \item\label{prop:2} Si $d\divides n$ y $n\divides m$, entonces $d\divides m$. (Transitividad).
+
 \item\label{prop:3} Si $d\divides n$ y $d\divides m$, entonces $d\divides an+bm$ $\forall a,b\in\mathbb{Z}$.
+
 \item\label{prop:4} Si $d\divides n$, entonces $ad\divides an$.
+
 \item\label{prop:5} Si $ad\divides an$ con $a\neq0$, entonces $d\divides n$.
+
 \item\label{prop:6} $1\divides n$ para cualquier $n\in\mathbb{N}$.
+
 \item\label{prop:7} $n\divides 0$ para cualquier $n\in\mathbb{N}$.
+
 \item\label{prop:8} Si $0\divides n$, entonces $n=0$.
+
 \item\label{prop:9} Si $d\divides n$ y $n\neq0$, entonces $|d|\leq|n|$.
+
 \item\label{prop:10} Si $d\divides n$ y $n\divides d$, entonces $|d|=|n|$.
+
 \item\label{prop:11} Si $d\divides n$ con $d\neq0$, entonces $\left(\frac{n}{d}\right)\divides n$.
+
 \end{enumerate}
 
 \section{Máximo común divisor}
 
 \begin{definition}\label{def:1.2}
+
 Sean $a$, $b$ y $d$ números enteros. Si $d\divides a$ y $d\divides b$, entonces $d$ es un divisor común de $a$ y $b$.
+
 \end{definition}
 
 \begin{theorem}\label{teo:1.1}
+
 Dados los números enteros $a$ y $b$, existe un divisor común $d$ de $a$ y $b$ de la forma $d=ax+by$ para cualesquiera $x,y\in\mathbb{Z}$.
+
 \begin{proof}[Prueba:]
-	 Por inducción matemática en $K=|a|+|b|$.
+Por inducción matemática en $K=|a|+|b|$.
+ 
+Si $K=0$, entonces $a=b=0$, esto es, $d=0\cdot a+0\cdot b$. \checkmark
 	 
-	 Si $K=0$, entonces $a=b=0$, esto es, $d=0\cdot a+0\cdot b$. \checkmark
+\noindent
+Supongamos que se cumple para $K=0,1,\ldots,n-1$. (Hipótesis de inducción matemática).
 	 
-	 \noindent
-	 Supongamos que se cumple para $K=0,1,\ldots,n-1$. (Hipótesis de inducción matemática).
+Demostraremos para $\boxed{K=n=|a|+|b|}$.
 	 
-	 Demostraremos para $\boxed{K=n=|a|+|b|}$.
+\noindent
+Sin pérdida de generalidad, suponga que $|a|\geq|b|$. Así, si $|b|=0$, entonces $b=0$ y $|a|=n\implies d=n=(1)(\pm1)+0\cdot b$.
 	 
-	 \noindent
-	 Sin pérdida de generalidad, suponga que $|a|\geq|b|$. Así, si $|b|=0$, entonces $b=0$ y $|a|=n\implies d=n=(1)(\pm1)+0\cdot b$.
-	 
-	 Si $|b|\geq1$, entonces para los números $|a|-|b|$ y $|b|$ se cumple la hipótesis:
-	 \[\underbrace{|a|-|b|}_{\displaystyle\geq0}+|b|=|a|-\cancel{|b|}+\bcancel{|b|}=|a|<|a|+|b|=n.\]
-	 
-	 Existe $d\in\mathbb{Z}$, $d\divides |a|-|b|$ y $d\divides |b|$. Además:
-	 \begin{align*}
-	 	d&=\left(|a|-|b|\right)x^{\prime}+|b|y^{\prime}&\forall x^{\prime},y^{\prime}\in\mathbb{Z}\\
-	 	d&=|a|\underbrace{x^{\prime}}_{\displaystyle x^{\prime\prime}}+|b|\underbrace{y^{\prime}}_{\displaystyle y^{\prime\prime}}&\\
-	 	d&=\underbrace{|a|}_{a,-a}x^{\prime\prime}+\underbrace{|b|}_{b,-b}y^{\prime\prime}&\\
-	 	d&=a\underbrace{x^{\prime\prime}}_{\pm x^{\prime}}+b\underbrace{y^{\prime\prime}}_{\pm y^{\prime}}&
-	 \end{align*}
-	 Pero $d\divides |a|$ y $d\divides |b|$, así $d\divides |a|-|b|$.
-	 
-	 \noindent
-	 $\therefore$ Esto cumple la condición.
-	\end{proof}
+Si $|b|\geq1$, entonces para los números $|a|-|b|$ y $|b|$ se cumple la hipótesis:
+
+\[\underbrace{|a|-|b|}_{\displaystyle\geq0}+|b|=|a|-\cancel{|b|}+\bcancel{|b|}=|a|<|a|+|b|=n.\]
+
+Existe $d\in\mathbb{Z}$, $d\divides |a|-|b|$ y $d\divides |b|$. Además:
+
+\begin{align*}
+	d&=\left(|a|-|b|\right)x^{\prime}+|b|y^{\prime}&\forall x^{\prime},y^{\prime}\in\mathbb{Z}\\
+	d&=|a|\underbrace{x^{\prime}}_{\displaystyle x^{\prime\prime}}+|b|\underbrace{y^{\prime}}_{\displaystyle y^{\prime\prime}}&\\
+	d&=\underbrace{|a|}_{a,-a}x^{\prime\prime}+\underbrace{|b|}_{b,-b}y^{\prime\prime}&\\
+	d&=a\underbrace{x^{\prime\prime}}_{\pm x^{\prime}}+b\underbrace{y^{\prime\prime}}_{\pm y^{\prime}}&
+\end{align*}
+
+\noindent
+Pero $d\divides |a|$ y $d\divides |b|$, así $d\divides |a|-|b|$.
+
+\noindent
+$\therefore$ Esto cumple la condición.
+\end{proof}
+
 \end{theorem}
 
 \begin{theorem}\label{teo:1.2}
-	Sean $a$ y $b$ números enteros, existe solo un número $d\in\mathbb{Z}$ tal que
-	\begin{enumerate}[font={\bfseries},label={\arabic*)}]
-		\item\label{teo1.2:1} $d\geq0$.
-		\item\label{teo1.2:2} $d\divides a$ y $d\divides b$.
-		\item\label{teo1.2:3} Si $e\divides a$ y $e\divides b$, entonces $e\divides d$ para cualquier $e\in\mathbb{Z}$.
-	\end{enumerate}
+Sean $a$ y $b$ números enteros, existe solo un número $d\in\mathbb{Z}$ tal que
 
-	\begin{proof}[Prueba:]
-		Por la definición~\ref{def:1.2} y por el teorema~\ref{teo:1.1}, existe un $d$ con las siguientes propiedades:
-		\begin{multicols}{3}
-			$d\divides a$
-			
-			$d\divides b$
-			
-			$d=ax+by$
-		\end{multicols}
-	\noindent
-	Es claro que $-d$ también cumple esto. Elegimos $|d|=ax^{\prime}+by^{\prime}$ que cumpla \ref{teo1.2:1} y \ref{teo1.2:2}.
+\begin{enumerate}[font={\bfseries},label={\arabic*)}]
+
+\item\label{teo1.2:1} $d\geq0$.
+
+\item\label{teo1.2:2} $d\divides a$ y $d\divides b$.
+
+\item\label{teo1.2:3} Si $e\divides a$ y $e\divides b$, entonces $e\divides d$ para cualquier $e\in\mathbb{Z}$.
+
+\end{enumerate}
+
+\begin{proof}[Prueba:]
+Por la definición~\ref{def:1.2} y por el teorema~\ref{teo:1.1}, existe un $d$ con las siguientes propiedades:
+\begin{multicols}{3}
+$d\divides a$
+
+$d\divides b$
+
+$d=ax+by$
+\end{multicols}
+
+\noindent
+Es claro que $-d$ también cumple esto. Elegimos $|d|=ax^{\prime}+by^{\prime}$ que cumpla \ref{teo1.2:1} y \ref{teo1.2:2}.
+
+\noindent
+Si $e\divides a$ y $e\divides b$, entonces de la propiedad~\ref{prop:3} $e\divides ax^{\prime}+by^{\prime}=|d|$.
 	
-	\noindent
-	Si $e\divides a$ y $e\divides b$, entonces de la propiedad~\ref{prop:3} $e\divides ax^{\prime}+by^{\prime}=|d|$.
+\noindent
+Así, $e\divides |d|$, en consecuencia $e\divides d$ y $|d|$ satisface~\ref*{teo1.2:3}.
 	
-	\noindent
-	Así, $e\divides |d|$, en consecuencia $e\divides d$ y $|d|$ satisface~\ref*{teo1.2:3}.
+\noindent
+Si existiese un $d^{\prime}$ que cumpla \ref{teo1.2:1}, \ref{teo1.2:2} y \ref{teo1.2:3}, entonces de la afirmación \ref{teo1.2:3}:
+
+\begin{equation}\label{eq:1.1}
+d\divides a\text{ y }d\divides b\implies d\divides d^{\prime}.
+\end{equation}
 	
-	\noindent
-	Si existiese un $d^{\prime}$ que cumpla \ref{teo1.2:1}, \ref{teo1.2:2} y \ref{teo1.2:3}, entonces de la afirmación \ref{teo1.2:3}:
-	\[d\divides a\text{ y }d\divides b\implies d\divides d^{\prime}.\]
-	
-	\noindent
-	De forma similar:
-	\[d^{\prime}\divides a\text{ y }d^{\prime}\divides b\implies d^{\prime}\divides d.\]
-	Pero de la propiedad~\ref{prop:10}
-	\end{proof}
+\noindent
+De forma similar:
+\begin{equation}\label{eq:1.2}
+d^{\prime}\divides a\text{ y }d^{\prime}\divides b\implies d^{\prime}\divides d.
+\end{equation}
+
+\noindent
+Pero de~\eqref{eq:1.1} y \eqref{eq:1.2} junto con la propiedad~\ref{prop:10} se obtiene que $\boxed{d=d^{\prime}}$.
+\end{proof}
+
 \end{theorem}
+
+\begin{definition}
+Este número $d$ es llamado máximo común divisor de $a$ y $b$ y se denota como $\mcd(a,b)$ o $(a,b)$.
+\end{definition}
+
+\begin{remark}
+Si el $\mcd(a,b)=1$, entonces $a$ y $b$ son llamados coprimos, primos entre sí (PESI) o primos relativos.
+\end{remark}
+
+\subsection{Algunas propiedades del máximo común divisor}
+
+\begin{enumerate}[font={\bfseries},label={\arabic*)}]
+
+\item $(a,b)=(b,a)$.
+
+\item $(a,(b,c))=((a,b),c)$.
+
+\item $(ac,bc)=|c|(a,b)$.
+
+\item $(a,1)=(1,a)=1$.
+
+\item $(a,0)=(0,a)=|a|$.
+\end{enumerate}
+
+\begin{theorem}
+
+Si $a\divides bc$ y si $(a,b)=1$, entonces $a\divides c$.
+\begin{proof}
+Como $(a,b)=1$, entonces existen $\tilde{x},\tilde{y}\in\mathbb{Z}$ de modo que
+
+\begin{equation}\label{eq:1.3}
+1=a\tilde{x}+b\tilde{y}
+\end{equation}
+
+\noindent
+Pero si multiplicamos~\eqref{eq:1.3} por $c$ resulta
+\begin{equation}
+c=a(c\tilde{x})+b(c\tilde{y})
+\end{equation}
+Así, $a\divides cx$ y $a\divides cy$ (explicar).
+
+\end{proof}
+
+\end{theorem}
+
+\section{Números primos}
+
+\begin{definition}
+
+El número $n\in\mathbb{N}$ es llamado número primo si sus divisores positivos son 1 y $n$. Cuando $n$ no es primo, será llamado número compuesto. 
+
+\end{definition}
+
+\begin{theorem}
+Cada natural $n>$ 1 o es primo o producto de números primos.
+
+\begin{proof}[Prueba:]
+Por inducción sobre $n$.
+
+Para $n=2$ \checkmark
+
+Supongamos que se cumple para $n=2,3,\ldots,k-1$.
+
+Demostraremos para $n=k$.
+
+\begin{enumerate}[font={\bfseries},label={*)}]
+
+\item Si $k$ es un número primo.
+
+\item Si $k$ no es un número primo, entonces $k$ tiene por lo menos un divisor $d>1$, por lo que $k=d\cdot c$ con $1<c<k$ y $1<d<k$.
+
+\end{enumerate}
+
+\noindent
+Se cumple la hipótesis para $c$ y $d$, entonces $c$ y $d$ son primos o productos de primos.
+
+\begin{align*}
+c&=p_1p_2\cdots p_k&(p_i\colon\text{primo}, k\geq1).\\
+d&=q_1q_2\cdots q_m&(q_i\colon\text{primo}, m\geq1).
+\end{align*}
+
+\noindent
+Así, $n=c\cdot d=p_1p_2\cdots p_kq_1q_2\cdots q_m$ (se cumple la inducción).
+\end{proof}
+\end{theorem}
+
+\begin{theorem}
+Existen infinitos números primos.
+
+\begin{proof}[Prueba:]
+
+Supongamos que $\boxed{\mathbb{P}=p_1p_2\cdots p_k}$ es el conjunto  de todos los números primos que existen. Definimos:
+\[N=p_1p_2\cdots p_k+1\]
+¿Qué tipo de número es $N$, es un primo o uno compuesto?
+
+\noindent
+Claro está que $N$ es mayor que $p_i,\forall i=1,\cdots k$.
+
+$N=p_1p_2\cdots p_k+1=q_1q_2\cdots q_t$.
+
+\[\begin{array}{l@{\quad}cr@{}l}
+&& q_i & {}\divides p_1p_2\cdots p_k+1 \\
+&& q_i & {}\divides p_1p_2\cdots p_k \\ \cline{2-4}
+&& q_i & {}\divides 1\quad(\implies\impliedby)
+\end{array}\ (-)\]
+$\therefore$ Existen infinitos números primos. %(¿numerable?)
+\end{proof}
+
+\end{theorem}
+
+\begin{theorem}
+Si $p$ es un número primo y $p\notdivides a$, entonces $(p,a)=1$.
+
+\begin{proof}
+
+Sea $d$ el máximo común divisor de $p$ y $a$ (ya que el teorema~\ref{teo:1.1} nos asegura su existencia), $d=(p,a)$, entonces
+
+\[d\divides p\quad\text{y}\quad d\divides a.\]
+
+\end{proof}
+
+\end{theorem}
+
+\begin{theorem}
+
+Sea $p$ un número primo. Si $p\divides ab$, entonces $p\divides a$ o $p\divides b$.
+
+\begin{proof}[Demostración:]
+Supongamos que $p\notdivides a$ ($p\divides a$ \checkmark), entonces $(p,a)=1$, en consecuencia, $p\divides ab$.
+
+\[\colorboxed{DarkRed}{a\divides bc\quad\text{y}\quad(a,b)=1\implies a\divides c.}\]
+
+\noindent
+$\therefore p\divides b$.
+\end{proof}
+
+\end{theorem}
+
+%Generalización: Si $p\divides a_1a_2\cdots a_n\implies p\divides a_1,\ldots, p\divides a_n$. Donde $p$ es un número primo.
+\begin{theorem}
+
+Cada entero $n>1$ se representa de forma única como producto de primos no necesariamente distintos, sin importar el orden.
+
+\begin{proof}[Prueba:]
+
+Por inducción en $n$. Cuando $n=2$ (se cumple: 2,3,\ldots,n-1.)
+$n=p_1p_2\cdots,p_s=q_1q_2\cdots q_t$ ($s=t$).
+$(s,t\geq 1)$
+
+$p_1\divides q_1q_2\cdots q_t\implies p_1\divides q_1\implies p_1=q_1$.
+\end{proof}
+
+\end{theorem}
+
+\begin{remark}
+
+Si se desea representar a $n$ como producto de primos distintos (donde cabe la posibilidad en que se repitan algún número primo), podemos escribir:
+\[n={p}^{a_1}_{1}{p}^{a_2}_{2}\cdots{p}^{a_k}_{k}=\prod_{i=1}^{k}{p}^{a_i}_{i}\]
+
+\end{remark}
+
+\begin{theorem}
+
+Si $\displaystyle n=\prod_{i=1}^{r}{p}^{a_i}_{i}$, entonces un divisor de $n$ tiene la forma
+\[\prod_{i=1}^{r}={p}^{c_i}_{i},\quad0\leq c_i\leq a_i.\]
+
+\end{theorem}
+
+\begin{remark}
+
+Sea la sucesión de números primos
+\[p_1=2, p_2=3, p_3=5, \ldots,\]
+entonces $\displaystyle n=\prod_{i=1}^{\infty}{p}^{a_i}_{i},\, a_i\geq0$.
+
+\end{remark}
+
+\begin{theorem}
+
+Sean $\displaystyle a=\prod_{i=1}^{\infty}{p}^{a_i}_{i}$ y $\displaystyle b=\prod_{i=1}^{\infty}{p}^{b_i}_{i}$, entonces el máximo común divisor de $a$ y $b$ es
+
+\[(a,b)=\displaystyle\prod_{i=1}^{\infty}{p}^{c_i}_{i}\geq0\text{, donde }c_i=\min\{a_i,b_i\}\leq a_i,b_i.\]
+
+\begin{proof}[Demostración:]
+
+\begin{enumerate}[font={\bfseries},label={*)}]
+
+\item $\displaystyle\prod_{i=1}^{\infty}{p}^{c_i}_{i}\divides a\quad\wedge\quad\prod_{i=1}^{\infty}{p}^{c_i}_{i}\divides b$.
+
+\item $e\divides a\quad\wedge\quad e\divides b, e=\displaystyle\prod_{i=1}^{\infty}{p}^{e_i}_{i}$.
+
+\end{enumerate}
+
+\noindent
+Pero, $e_i\leq a_i$ y $e_i\leq b_i$,
+
+\[\implies e_i\leq\min\{a_i,b_i\}=c_i.\]
+
+\end{proof}
+
+\end{theorem}
+
+
 \end{document}
