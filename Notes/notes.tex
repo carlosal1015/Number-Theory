@@ -2,14 +2,47 @@
 
 \input{paquetes.tex}
 
-\author{\textcolor{DarkRed}{Estudiante Oromion}\thanks{E-mail: {\href{mailto:caznaranl@uni.pe}{caznaranl\MVAt uni.pe}}.}}
-
-\title{\textcolor{DarkBlue}{Apuntes de Teoría de números}\thanks{Gracias al \href{https://web.facebook.com/GEMFCUNI/}{Grupo Estudiantil de Matemática} y al \href{http://imca.edu.pe/portal/index.php/es/}{Instituto de Matemática y Ciencias Afines}.}}
+\title{\Huge\bfseries\textcolor{DarkBlue}{Apuntes de clases de Teoría de números}}
+\author{\LARGE\textcolor{DarkRed}{Grupo Estudiantil de Matemática}}
 \date{\textcolor{DarkMagenta}{Actualizado a la fecha \today}}
 
+
 \begin{document}
+
 \maketitle
-%Verano 2018
+
+\chapter*{Prefacio}
+
+Estos son los apuntes de clases de Teoría de números organizado por el \href{https://web.facebook.com/GEMFCUNI/}{Grupo Estudiantil de Matemática} durante los meses de enero y febrero del año 2018.
+
+Muchas gracias al \href{http://imca.edu.pe/portal/index.php/es/}{Instituto de Matemática y Ciencias Afines} por brindarnos sus ambientes para llevar a cabo las clases.
+
+Por favor, cualquier sugerencia o aviso de error escribir a {\href{mailto:gem@uni.edu.pe}{gem\MVAt uni.edu.pe}} o {\href{mailto:caznaranl@uni.pe}{caznaranl\MVAt uni.pe}}.
+
+\begin{flushright}
+	Carlos Aznarán
+	
+\end{flushright}
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\captionsetup{justification=centering,margin=0.5cm}
+		\includegraphics[height=4\baselineskip,width=.4\linewidth]{signature.png}
+		\caption*{\textbf{Und. Jimmy Espinoza Palacios}\\Miembro del GEM\\Facultad de Ciencias}
+	\end{subfigure}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\captionsetup{justification=centering,margin=0.5cm}
+		\includegraphics[height=4\baselineskip,width=.4\linewidth]{signature.png}
+		\caption*{\textbf{Und. Bruno Goicochea Vilela}\\Presidente del GEM\\Facultad de Ciencias}
+	\end{subfigure}
+\end{figure}% Your signature
+%El código fuente se puede encontrar en
+
+\renewcommand{\contentsname}{Tabla de contenido}
+\tableofcontents
+
 \chapter{Introducción}%Fecha: 11 de enero del 2018.
 
 \begin{enumerate}[font={\bfseries},label={\roman*.}]
@@ -367,9 +400,41 @@ Pero, $e_i\leq a_i$ y $e_i\leq b_i$,
 
 \[\implies e_i\leq\min\{a_i,b_i\}=c_i.\]
 
+\[e=\prod_{i=1}^{\infty}{p}^{e_i}_{i}\divides\prod_{i=1}^{\infty}{p}^{c_i}_{i}=(a,b).\]
 \end{proof}
 
 \end{theorem}
 
+\begin{theorem}
+
+Sean $a$ y $b$ números enteros con $b>0$, entonces existen únicos $q,r\in\mathbb{Z}$ tal que:
+
+\[a=bq+r,\quad0\leq r<b.\]
+
+\noindent
+Además, $r=0\iff b\divides a$.
+
+\begin{proof}[Demostración:]
+Fijando $\underline{b}$ y por inducción en $a\in\mathbb{N}$. Si $a=0$, entonces $a=b\cdot0+0$. \checkmark
+
+\noindent
+Supongamos que se cumple para $a=0,1,\ldots,k-1$.
+
+\noindent
+Para $a=k$. $k-1=b\cdot q^{\prime}+r^{\prime}$, $0\leq r^{\prime}<b$.
+\[\longrightarrow k=bq^{\prime}+(r^{\prime}+1).\quad1\leq r^{\prime}+1<b+1.\]
+
+\begin{enumerate}[font={\bfseries},label={$\bullet$)}]
+
+\item Si $1\leq r^{\prime}+1<b$ \checkmark
+
+\item Si $r^{\prime}+1=b\rightarrow r^{\prime}=b-1\implies$
+
+\end{enumerate}
+\end{proof}
+
+\end{theorem}
+
+\input{lista1.tex}
 
 \end{document}

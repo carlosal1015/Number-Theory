@@ -3,12 +3,15 @@
 \usepackage{libertine}
 \usepackage[spanish]{babel}
 \spanishdatedel
+\usepackage[pdftex]{graphicx}
 \usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
 \usepackage{mathtools,amssymb,amsfonts,amsmath,amsthm,mathrsfs,bm,times,mathabx}
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage{geometry}
+\usepackage{background}
+\usepackage{caption,subcaption}
 \usepackage{enumitem}
 %\geometry{
 %	tmargin=1cm, 
@@ -26,6 +29,16 @@
 		Producer={TeXstudio 2.12.6},
 		Creator={pdfTeX Version 3.14159265-2.6-1.40.18 TeX Live 2018 Debian}
 }}
+
+\backgroundsetup{%
+	scale=1,       %% change accordingly
+	angle=0,       %% change accordingly
+	opacity=.1,    %% change accordingly
+	contents={\begin{tikzpicture}[remember picture,overlay]
+		\node at ([yshift=11pt,xshift=5pt]current page.center) {\includegraphics[width=8.1cm]{gemtransparente}};    %% yshift and xshift for example only
+		\end{tikzpicture}}
+}
+
 \newcommand*{\colorboxed}{}
 \def\colorboxed#1#{%
 	\colorboxedAux{#1}%
@@ -43,6 +56,7 @@
 	}%
 	\endgroup
 }
+
 %\usepackage[citestyle=numeric,style=numeric,backend=biber]{biblatex}
 %\addbibresource{num.bib}
 \DeclareMathOperator{\mcd}{mcd}
