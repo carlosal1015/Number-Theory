@@ -34,3 +34,117 @@
 
 Probar que $m$ es divisible por 1979. Ayuda: 1979 es un número primo.
 \end{enumerate}
+
+\section{Solución de la lista N$^{\circ}$1}
+
+\begin{enumerate}[font={\bfseries},label={\arabic*.}]
+\item
+	\begin{enumerate}[font={\bfseries}]
+	\item Dado $n=\dfrac{ad+bc}{bd}$, con $b$ y $d$ que dividen a $ad+bc$. Esto significa que $b\divides bc$ y $d\divides bc$, pero $\mcd(a,b)=\mcd(c,d)=1$. se tiene que $b\divides b$ y $d\divides b$. Por lo tanto, $|b|=|d|$.
+	
+	\item Sea $k\in\mathbb{Z}$ y $k=\dfrac{a}{b}+\dfrac{c}{d}$, entonces $\dfrac{c}{d}=k-\dfrac{a}{b}=\dfrac{ck-a}{b}$.
+	
+	Supongamos por contradicción que $\mcd(kb-a,b)\neq1$. Además, si $\mcd(kb-a,b)=n$, entonces $n\divides (kb-a)$ y  $n\divides b$.
+		
+	\[kb-a=n\ell_1\quad\wedge\quad b=n\ell_2\]
+	\[k(n\ell_2)-a=n\ell_1\]
+	\[n(k\ell_2-\ell_1)=a\]
+	Pero de la última ecuación, se infiere que $n\divides a$ y $n\divides b$, lo cual es una contradicción.
+	\end{enumerate}
+	
+	\item Si el $\mcd(a,b)=1$ y el $\mcd(a+b,a-b)=d$, entonces:
+	
+	\begin{align*}
+	d\divides a+b\;&\wedge\; d\divides a-b&\implies d&\divides (a+b)+(a-b)\;&\wedge\; d&\divides (a+b)-(a-b)&\\
+	d\divides a+b\;&\wedge\; d\divides a-b&\implies d&\divides 2a\;&\wedge\; d&\divides 2b&
+	\end{align*}
+	Por lo tanto $d\divides \mcd(2a,2b)\implies d\divides 2\mcd(a,b)\implies d\divides 2$, así, $d=1\vee2$.
+	
+	\item Si el $\mcd(a,b)=1$ y el $\mcd(a+b,a^{2}-ab+b^{2})=d$, entonces:
+	
+	\begin{align*}
+	d\divides a+b\;&\wedge\; d\divides a^{2}-ab+b^{2}&\implies d&\divides {(a+b)}^{2}\;&\\
+	d\divides a+b\;&\wedge\; d\divides a^{2}-ab+b^{2}&\implies d&\divides a^{2}+2ab+b^{2}\;&\\
+	d\divides a+b\;&\wedge\; d\divides a^{2}-ab+b^{2}&\implies d&\divides
+	\cancel{a^{2}}+2ab+\cancel{b^{2}}-(\bcancel{a^{2}}-ab+\bcancel{b^{2}})\;&&\\
+	d\divides a+b\;&\wedge\; d\divides a^{2}-ab+b^{2}&\implies d&\divides3ab
+	&
+	\end{align*}
+	Por lo tanto, $d\divides 3a(a+b)\implies d\divides 3a^{2}+3ab$. De esto, $d\divides 3a^{2}$ y $d\divides 3ab$.
+	
+	\[d\divides\mcd(3a^{2},3ab)\implies d\divides|3a|\cdot\mcd(a,b)\implies d\divides 3a.\]
+	
+	Como $d\divides a+b\implies d\divides 3a+3b\implies d\divides 3b$. %pues d divide a 3a
+	$d\divides\mcd(3a,3b)\implies d\divides 3\underbrace{\mcd(a,b)}_{\displaystyle1}\implies d\divides 3$. Así, $d=1\vee3$.
+	
+	\item Si el $\mcd(a,b)=1$ y el $\mcd(a^{n},b^{k})=d>1$, entonces $d\divides a^{n}$ y $d\divides b^{k}$. Sea $p$ un número primo de modo que $p\divides d$. Así:
+	\begin{align*}
+	p\divides a^{n}\;\wedge\;p\divides b^{k}\implies p\divides a\;\wedge\; p\divides b\implies p\divides\underbrace{\mcd(a,b)}_{\displaystyle1}
+	\end{align*}
+	¡Un número primo divide a 1! $(\implies\impliedby)$. $\therefore d=1$.
+	
+	\item Sea el conjunto $\mathbb{N}=\mathcal{A}\bigcup\mathcal{B}$, donde $\mathcal{A}\coloneq\{n\in\mathbb{N}\mid n\text{ es libre de cuadrados} \}$ y $\mathcal{B}\coloneq\mathcal{A}^{\complement}$.
+	
+	Para el caso 1: Sea $\gamma=1^{2}\cdot\gamma$, si $\gamma\in\mathcal{A}$.
+	
+	Sea $\theta\in\mathcal{B}$, entonces $\exists z^{2}\ni\theta=z^{2}\cdot\tau$.
+	
+	Supongamos que $\tau$ no es libre de cuadrados:
+	\[\tau=n^{2}\cdot m \checkmark\]
+	Al reemplazar resulta:
+	\[\theta=z^{2}n^{2}m=(z\cdot n)^{2}\cdot m(\implies\impliedby)\]
+	
+	\item Por contradicción y combinación lineal
+	\[\mcd(a,b)=1\;\text{y}\;a\cdot b=c^{n}\]
+	donde $a$ y $b$ tienen las siguiente forma:
+	\[a={p}^{\alpha_1}_{1}{p}^{\alpha_2}_{2}\cdots{p}^{\alpha_k}_{k}\quad\text{y}\quad b={q}^{\beta_1}_{1}{q}^{\beta_2}_{2}\cdots{q}^{\beta_\ell}_{\ell}.\]
+	¡Recuerde que a y b no tiene factores comunes!
+	Así, multiplicando $a$ y $b$:
+	\[
+	a\cdot b={p}^{\alpha_1}_{1}{p}^{\alpha_2}_{2}\cdots{p}^{\alpha_k}_{k}\cdot{q}^{\beta_1}_{1}{q}^{\beta_2}_{2}\cdots{q}^{\beta_\ell}_{\ell}=c^{n},
+	\]
+	donde
+	\[c={p}^{\theta_1}_{1}{p}^{\theta_2}_{2}\cdots{p}^{\theta_k}_{k}\cdot{q}^{\phi_1}_{1}{q}^{\phi_2}_{2}\cdots{q}^{\phi_\ell}_{\ell}\]
+	\[c^{n}={p}^{\theta_1\cdot n}_{1}{p}^{\theta_2\cdot n}_{2}\cdots{p}^{\theta_k\cdot n}_{k}\cdot{q}^{\phi_1\cdot n}_{1}{q}^{\phi_2\cdot n}_{2}\cdots{q}^{\phi_\ell\cdot n}_{\ell}\]
+	
+	Por comparación obtenemos las siguientes igualdades:
+	\[
+	\alpha_1=\theta_1\cdot n,\;\alpha_2=\theta_2\cdot n,\;\cdots,\alpha_k=\theta_k\cdot n.%Tratar de reproducirlo con un foreach con Tikz.
+	\]
+	\[
+	\beta_1=\phi_1\cdot n,\;\beta_2=\phi_2\cdot n,\;\cdots,\beta_\ell=\phi_\ell\cdot n.
+	\]
+	Así, $a={\left(\underbrace{{p}^{\theta_1}_{1}{p}^{\theta_2}_{2}\cdots{p}^{\theta_k}_{k}}_{\displaystyle x}\right)}^{n}$ y $b={\left(\underbrace{{q}^{\phi_1}_{1}{q}^{\phi_2}_{2}\cdots{q}^{\phi_\ell}_{\ell}}_{\displaystyle y}\right)}^{n}$.
+	
+	\item Sea $g=\mcd(\mathfrak{a}^{2^{m}}+1,\mathfrak{a}^{2^{n}}+1)$. Se define la aplicación $f_{\mathfrak{a}}$ con la siguiente regla de correspondencia como sigue:
+	\[\begin{aligned}
+	f_{\mathfrak{a}}\colon\mathbb{N}&\longrightarrow\mathbb{N}\\
+	k&\longmapsto\mathfrak{a}^{2^{k}}+1
+	\end{aligned}\]
+	Así, con la notación apropiada, $g$ queda expresada como $\mcd\left(f_{\mathfrak{a}}(m),f_{\mathfrak{a}}(n)\right)$. Además $g\divides f_{\mathfrak{a}}(m)$ y $g\divides f_{\mathfrak{a}}(n)$.
+	
+	\begin{enumerate}
+		\item Para el caso en que $m>n$:
+		
+		Ahora, calculemos:
+		
+		\begin{flalign*}
+		f_{\mathfrak{a}}(m)-2
+		&=\mathfrak{a}^{2^{m}}+1-2=\mathfrak{a}^{2^{m}}-1&\\
+		&=\left(\mathfrak{a}^{2^{n}}\right)^{2^{m-n}}-1&\\
+		&=\underbrace{\left(\mathfrak{a}^{2^{n}}+1\right)}_{\displaystyle f_{\mathfrak{a}}(n)}\left(\mathfrak{a}^{2^{(m-n-1)}}-1\right)&
+		\end{flalign*}
+		
+		Así que $f_{\mathfrak{a}}(n)\divides f_{\mathfrak{a}}(m)-2$. Pero, como $g\divides f_{\mathfrak{a}}(n)\implies g\divides f_{\mathfrak{a}}(m)-2$
+		
+		\item Para el caso en que $m=n$:
+		
+		\item Para el caso en que $m<n$:
+	\end{enumerate}
+	
+	\item Si el $\mcd(a,b)=1$ y los números $a$ y $b$ tiene la siguiente representación:
+	\[a={p}^{\theta_1}_{1}{p}^{\theta_2}_{2}\cdots{p}^{\theta_k}_{k}=\prod_{i=1}^{k}{p_i}^{\alpha_i}\]
+	\[b={q}^{\beta_1}_{1}{q}^{\beta_2}_{2}\cdots{q}^{\beta_\ell}_{\ell}=\prod_{i=1}^{\ell}{q_i}^{\beta_i}\]
+	
+	Pero $x^{a}=$
+\end{enumerate}

@@ -1,0 +1,29 @@
+\newcommand*{\colorboxed}{}
+\def\colorboxed#1#{%
+	\colorboxedAux{#1}%
+}
+\newcommand*{\colorboxedAux}[3]{%
+	% #1: optional argument for color model
+	% #2: color specification
+	% #3: formula
+	\begingroup
+	\colorlet{cb@saved}{.}%
+	\color#1{#2}%
+	\boxed{%
+		\color{cb@saved}%
+		#3%
+	}%
+	\endgroup
+}
+
+%\usepackage[citestyle=numeric,style=numeric,backend=biber]{biblatex}
+%\addbibresource{num.bib}
+\DeclareMathOperator{\mcd}{mcd}
+\newcommand{\MVAt}{{\usefont{U}{mvs}{m}{n}\symbol{`@}}} % Se prefiere no usar el paquete marvosym cuando esté cargada mathabx.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newtheorem{definition}{Definición}[chapter] %chapter, section
+\newtheorem{theorem}{Teorema}[chapter] %chapter section
+\newtheorem{remark}{Observación}[chapter]
+\newtheorem{conjecture}{Conjetura}
+\theoremstyle{definition}
+\pagestyle{empty}
