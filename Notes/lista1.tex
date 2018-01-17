@@ -135,7 +135,14 @@ Probar que $m$ es divisible por 1979. Ayuda: 1979 es un número primo.
 		&=\underbrace{\left(\mathfrak{a}^{2^{n}}+1\right)}_{\displaystyle f_{\mathfrak{a}}(n)}\left(\mathfrak{a}^{2^{(m-n-1)}}-1\right)&
 		\end{flalign*}
 		
-		Así que $f_{\mathfrak{a}}(n)\divides f_{\mathfrak{a}}(m)-2$. Pero, como $g\divides f_{\mathfrak{a}}(n)\implies g\divides f_{\mathfrak{a}}(m)-2$
+		Así que $f_{\mathfrak{a}}(n)\divides f_{\mathfrak{a}}(m)-2$. Pero, como $g\divides f_{\mathfrak{a}}(n)\implies g\divides f_{\mathfrak{a}}(m)-2$.
+		
+		$\therefore g\divides -\cancel{f_{\mathfrak{a}}(m)}+2+\bcancel{f_{\mathfrak{a}}(m)}\implies g\divides 2$.
+		
+		\begin{enumerate}[label={$\bullet$}]
+			\item Si $a$ es par, entonces $f_{\mathfrak{a}}(m)$ es impar y $g=1$.
+			\item Si $a$ es impar, entonces $f_{\mathfrak{a}}(m)$ es par y $g=2$.
+		\end{enumerate}
 		
 		\item Para el caso en que $m=n$:
 		
