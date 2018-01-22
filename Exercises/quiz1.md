@@ -22,3 +22,6 @@
 - 1
 - -1
 - 2
+
+Take the Last Rock
+There is a pile of N rocks. Two players take rocks from the pile in turns. In each turn a player can either take one or two rocks from the pile. The player that takes the last rock wins the game. You move first.
