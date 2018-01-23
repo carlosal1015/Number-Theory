@@ -11,6 +11,7 @@
 \RequirePackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
 \RequirePackage{mathtools,amssymb,amsfonts,amsmath,amsthm,mathrsfs,bm,times,mathabx}
 \RequirePackage[makeroom]{cancel}
+\RequirePackage{minted}
 \RequirePackage{multicol}
 \RequirePackage{background}
 \RequirePackage{float}

@@ -147,12 +147,10 @@ $\varphi(n)\colon$ cantidad de números menores o iguales que $n$ y coprimos con
 \subsection{Fórmula para $\varphi(n)$}
 
 \begin{theorem}
-	Si $n>1$, entonces $\displaystyle\varphi(n)=n\prod\left(1-\frac{1}{p}\right)$.
-	\begin{proof}[Demostración]
-		Usar el principio de inclusión y exclusión. Sean $\mathcal{A}_1,\mathcal{A}_2,\mathcal{A}_3,\ldots,\mathcal{A}_k$ conjuntos (puede haber algún conjunto vacío).
-		
-		\[
-		\displaystyle\implies\left|\bigcup^{k}_{i=1}\mathcal{A}_{i}\right|=\sum_{i=1}^{k}|\mathcal{A}_{i}|
-		\]
+Si $n>1$, entonces $\displaystyle\varphi(n)=n\prod\left(1-\frac{1}{p}\right)$.
+\begin{proof}[Demostración]
+Usar el principio de inclusión y exclusión. Sean $\mathcal{A}_1,\mathcal{A}_2,\mathcal{A}_3,\ldots,\mathcal{A}_k$ conjuntos (puede haber algún conjunto vacío).
+
+\[\displaystyle\implies\left|\bigcup^{k}_{i=1}\mathcal{A}_{i}\right|=\sum_{i=1}^{k}\left|\mathcal{A}_i\right|-\sum_{\substack{i,j=1\\i\neq j}}^{k}\left|\mathcal{A}_{i}\bigcap\mathcal{A}_{j}\right|+\sum_{i,j,\ell=1}\left|\mathcal{A}_i\bigcup\right| \]
 	\end{proof}
 \end{theorem}
