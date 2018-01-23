@@ -1,0 +1,158 @@
+\chapter{Funciones aritméticas}
+
+\begin{definition}
+Una \emph{función aritmética} es cualquiera función $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$.	
+\end{definition}
+
+Algunas funciones aritméticas son:
+
+\begin{enumerate}
+	\item Función de M\"{o}bius $\mu(n)$
+	\[\mu\colon\mathbb{Z}^{+}\longrightarrow\{-1,0,1\}\]
+	\[
+	\mu(n)= 
+	\begin{cases}
+	1 & \text{si } n=1,\\
+	{(-1)}^{k}  & \text{si } \dc\text{ con } \alpha_1=\alpha_2=\cdots=\alpha_k=1;\\
+	0&\text{en otro caso.}
+	\end{cases}
+	\]
+\end{enumerate}
+
+\begin{remark} $\mu(n)=0$ si y solo si $n$ posee un divisor cuadrado perfecto mayor que 1.
+\end{remark}
+\begin{example}
+	Algunos valores de la función $\varphi(n)\colon$
+	
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ccccccccccc}
+		$n\colon$ &1 &2 &3 & 4 & 5 & 6 & 7 & 8 &9 & 10\\[0.1cm]
+		$\mu(n)\colon$ &1 &-1 & -1 & 0 & -1 & 1 & -1 & 0 & 0 & 1
+	\end{tabular}
+\end{table}
+
+\end{example}
+
+\begin{theorem}
+	Si $n\geq1$ y $d>0$, entonces $\displaystyle\sum_{d\divides n}\mu(d)= 
+	\begin{cases}
+	1 & \text{si } n=1,\\
+	0 &\text{si } n>1.
+	\end{cases}$
+
+\begin{proof}[Demostración]
+	\begin{enumerate}
+		\item Si $n=1\colon$ $\underbrace{\mu(1)}_{\displaystyle\sum_{d\divides 1}\mu(d)}=1$ \checkmark
+		
+		\item Si $n>1$, entonces $\dc$. Si $d\divides n$ y $d$ posee un factor cuadrado perfecto mayor que 1, entonces $\mu(d)=0$.
+		\[
+		\sum_{d\divides n}\mu(d)=\underbrace{\cancelto{0}{\sum_{d\divides n}\mu(d)}}_{\displaystyle d\text{ posee algún factor }k^{2}>1}+\underbrace{\sum_{d\divides n}\mu(d)}_{\displaystyle d\text{ no posee factor }k^{2}>1}
+		\]
+		$d\divides n$ y $d$ no poseen factor $k^{2}>1$.
+		
+		$\displaystyle\implies d=p_{i1}p_{i2}\cdots p_{is}$
+		\begin{align*}
+		\implies \sum_{d\divides n}\mu(d)
+		&=\mu(1)+\mu(p_1)+\mu(p_2)+\cdots+\mu(p_k)+&\\
+		& \mu(p_1p_2)+\cdots+\mu(p_{k-1}p_{k})+\cdots\mu(p_1p_2\cdots p_k)&\\
+		&=1\binom{k}{0}+(-1)\binom{k}{1}+{(-1)}^{2}\binom{k}{2}+\cdots+{(-1)}^{k}\binom{k}{k}&\\
+		&={(1+(-1))}^{k}=0.&
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+\end{theorem}
+
+\begin{enumerate}
+	\item Función indicador de Euler.
+	\[\varphi\colon\mathbb{Z}^{+}\longrightarrow\mathbb{Z}^{+}\]
+\end{enumerate}
+
+$\varphi(n)\colon$ cantidad de números menores o iguales que $n$ y coprimos con $n$.
+
+\begin{example}
+	
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ccccccccccc}
+		$n\colon$ &1 &2 &3 & 4 & 5 & 6 & 7 & 8 &9 & 10\\[0.1cm]
+		$\varphi(n)\colon$ &1 &1 & 2 &2 & 4 & 2 & 6 & 4 & 6 & 4
+	\end{tabular}
+\end{table}	
+
+\end{example}
+
+\begin{theorem}
+	Si $n\geq1$, entonces $\displaystyle\sum_{d\divides n}\varphi(d)=n$.
+\begin{proof}[Demostración]
+	Para cada $d$ tal que $d\divides n$.
+	Sea: $\mathcal{A}_d\coloneq\{k\colon\mcd(k,n)=d, 1\leq k\leq n\}$.
+	
+	$a\in\mathcal{A}_d, \mathcal{A}_{d^{\prime}} (d\neq d^{\prime})$
+	
+	$\implies \mcd(a,n)=d, \mcd(a,n)=d^{\prime} (\implies\impliedby)$.
+	
+	$\implies \mathcal{A}_{d}\bigcap\mathcal{A}_{d^{\prime}}=\emptyset (\forall d\neq d^{\prime})$
+	
+	Sea $f(d)$ la cantidad de elementos de $\mathcal{A}_{d}$.
+	%inclusion derecha
+	\[\bigcup_{d\divides n}\mathcal{A}_{d}=\{1,2,\ldots,n\}.%={\{i\}}_{i=1}^{n}
+	\]
+	Porque si $k\leq n\implies \mcd(k,n)=d$ en donde $d\divides n\implies \mathcal{A}_{d}\subset\bigcup_{d\divides n}\mathcal{A}_{d}\implies\displaystyle\sum_{d\divides n}f(d)=n$.
+	%Inclusión izquierda
+	Pero $\mcd(k,n)=d\implies\mcd\left(\frac{k}{d},\frac{n}{d}\right)=1$.
+	
+	\[\mathcal{A}_{d}\coloneq\left\{k\colon\left(\frac{k}{d},\frac{n}{d}\right)=1, 1\leq k\leq n\right\}\]
+	
+	\[\mathcal{B}_{d}\coloneq\left\{q\colon\left(q,\frac{n}{d}\right)=1, 1\leq q\leq \frac{n}{d}\right\}\]
+	
+	$\implies|\mathcal{A}_{d}|=|\mathcal{B}_{d}|=f(d)=\varphi\left(\frac{n}{d}\right)$
+	
+	$\displaystyle\implies\sum_{d\divides n}\varphi\left(\frac{n}{d}\right)=n$.
+\end{proof}
+\end{theorem}
+
+\section{Relación entre $\mu$ y $\varphi$}
+
+\begin{theorem}
+	Si $n\geq1$, entonces $\displaystyle\varphi(n)=\sum_{d\divides n}\mu(d)\left(\frac{n}{d}\right)$.
+	\begin{proof}[Demostración]
+		\[\varphi(n)=\sum_{k=1}^{n}i(k), \text{ donde } i(k)=\begin{cases}
+		1 & \text{si } \mcd(n,k)=1,\\
+		0 & \text{si } \mcd(n,k)\neq1.
+		\end{cases}\]
+		Por el teorema:
+		\[\sum_{d\divides\mcd(n,k)}\mu(d)=\begin{cases}
+		1 & \text{si }\mcd(n,k)=1,\\
+		0 & \text{si } \mcd(n,k)>1.
+		\end{cases}\]
+		
+		\[\sum_{d\divides\mcd(n,k)}\mu(d)=\begin{cases}
+		1 & \text{si } i(k)=1,\\
+		0 & \text{si } i(k)=0.
+		\end{cases}\]
+		
+		\[\sum_{d\divides\mcd(n,k)}\mu(d)=i(k)\]
+		
+		\[\implies\varphi(n)=\sum_{d\divides\mcd(n,k)}\mu(d)=\sum_{k=1}^{n}\sum_{\substack{d\divides n\\
+		d\divides k}}\mu(d)\]
+	
+		Fijamos un divisor $d$ en $n$. Entonces, el divisor $d$ de $n$ aparecerá siempre y cuando $k$ sea múltiplo de $d$ $(k=qd)$. Por lo tanto,
+		\[d\leq k\leq n\implies 1\leq q\leq\frac{n}{d}.\]
+		Hay $\dfrac{n}{d}$ múltiplos de $k$.
+		\[\implies\varphi(n)=\sum_{d\divides n}\mu(d)\frac{n}{d}.\]
+	\end{proof}
+\end{theorem}
+
+\subsection{Fórmula para $\varphi(n)$}
+
+\begin{theorem}
+	Si $n>1$, entonces $\displaystyle\varphi(n)=n\prod\left(1-\frac{1}{p}\right)$.
+	\begin{proof}[Demostración]
+		Usar el principio de inclusión y exclusión. Sean $\mathcal{A}_1,\mathcal{A}_2,\mathcal{A}_3,\ldots,\mathcal{A}_k$ conjuntos (puede haber algún conjunto vacío).
+		
+		\[
+		\displaystyle\implies\left|\bigcup^{k}_{i=1}\mathcal{A}_{i}\right|=\sum_{i=1}^{k}|\mathcal{A}_{i}|
+		\]
+	\end{proof}
+\end{theorem}
