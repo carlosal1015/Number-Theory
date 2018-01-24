@@ -1,7 +1,8 @@
-# Number Theory #
-### Instructor: Jimmy Espinoza Palacios ###
-### Location: [Institute of Mathematics and Related Sciences](http://imca.edu.pe/portal/index.php/es/) ###
-### Date: January 11th, 2018 ###
+## Number Theory -- [Grupo Estudiantil de Matemática](https://www.facebook.com/gemfcuni) ##
+#### Instructor: Ugrd. Jimmy Espinoza Palacios ####
+#### Location: [Institute of Mathematics and Related Sciences](http://imca.edu.pe/portal/index.php/es/) ####
+### Start date: January 11th, 2018 ###
+#### Schedule: Monday, Tuesday 15:00 -- 18:00 hrs ####
 
 I.  Teorema fundamental de la aritmética
 
