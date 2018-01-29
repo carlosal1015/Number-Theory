@@ -1,7 +1,7 @@
 \chapter{Funciones aritméticas}
 
 \begin{definition}
-Una \emph{función aritmética} es cualquiera función $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$.	
+Una \textbf{función aritmética} es cualquiera función $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$.	
 \end{definition}
 
 Algunas funciones aritméticas son:
@@ -9,20 +9,16 @@ Algunas funciones aritméticas son:
 \begin{enumerate}
 	\item Función de M\"{o}bius $\mu(n)$
 	\[\mu\colon\mathbb{Z}^{+}\longrightarrow\{-1,0,1\}\]
-	\[
-	\mu(n)= 
+	\[\mu(n)= 
 	\begin{cases}
 	1 & \text{si } n=1,\\
 	{(-1)}^{k}  & \text{si } \dc\text{ con } \alpha_1=\alpha_2=\cdots=\alpha_k=1;\\
 	0&\text{en otro caso.}
-	\end{cases}
-	\]
-\end{enumerate}
-
+	\end{cases}\]
 \begin{remark} $\mu(n)=0$ si y solo si $n$ posee un divisor cuadrado perfecto mayor que 1.
 \end{remark}
 \begin{example}
-	Algunos valores de la función $\varphi(n)\colon$
+	Algunos valores de la función $\mu(n)\colon$
 	
 \begin{table}[H]
 	\centering
@@ -42,6 +38,7 @@ Algunas funciones aritméticas son:
 	\end{cases}$
 
 \begin{proof}[Demostración]
+
 	\begin{enumerate}
 		\item Si $n=1\colon$ $\underbrace{\mu(1)}_{\displaystyle\sum_{d\divides 1}\mu(d)}=1$ \checkmark
 		
@@ -63,7 +60,6 @@ Algunas funciones aritméticas son:
 \end{proof}
 \end{theorem}
 
-\begin{enumerate}
 	\item Función indicador de Euler.
 	\[\varphi\colon\mathbb{Z}^{+}\longrightarrow\mathbb{Z}^{+}\]
 \end{enumerate}
@@ -71,7 +67,7 @@ Algunas funciones aritméticas son:
 $\varphi(n)\colon$ cantidad de números menores o iguales que $n$ y coprimos con $n$.
 
 \begin{example}
-	
+	Algunos valores de la función $\varphi(n)\colon$
 \begin{table}[H]
 	\centering
 	\begin{tabular}{ccccccccccc}
@@ -85,8 +81,9 @@ $\varphi(n)\colon$ cantidad de números menores o iguales que $n$ y coprimos con
 \begin{theorem}
 	Si $n\geq1$, entonces $\displaystyle\sum_{d\divides n}\varphi(d)=n$.
 \begin{proof}[Demostración]
-	Para cada $d$ tal que $d\divides n$.
-	Sea: $\mathcal{A}_d\coloneq\{k\colon\mcd(k,n)=d, 1\leq k\leq n\}$.
+	Para cada $d$ tal que $d\divides n$. Sea$\colon$
+	
+	\[\mathcal{A}_d\coloneq\{k\colon\mcd(k,n)=d, 1\leq k\leq n\}.\]
 	
 	$a\in\mathcal{A}_d, \mathcal{A}_{d^{\prime}} (d\neq d^{\prime})$
 	
@@ -108,7 +105,7 @@ $\varphi(n)\colon$ cantidad de números menores o iguales que $n$ y coprimos con
 	
 	$\implies|\mathcal{A}_{d}|=|\mathcal{B}_{d}|=f(d)=\varphi\left(\frac{n}{d}\right)$
 	
-	$\displaystyle\implies\sum_{d\divides n}\varphi\left(\frac{n}{d}\right)=n$.
+	$\boxed{\displaystyle\implies\sum_{d\divides n}\varphi\left(\frac{n}{d}\right)=n.}$
 \end{proof}
 \end{theorem}
 
@@ -152,5 +149,92 @@ Si $n>1$, entonces $\displaystyle\varphi(n)=n\prod\left(1-\frac{1}{p}\right)$.
 Usar el principio de inclusión y exclusión. Sean $\mathcal{A}_1,\mathcal{A}_2,\mathcal{A}_3,\ldots,\mathcal{A}_k$ conjuntos (puede haber algún conjunto vacío).
 
 \[\displaystyle\implies\left|\bigcup^{k}_{i=1}\mathcal{A}_{i}\right|=\sum_{i=1}^{k}\left|\mathcal{A}_i\right|-\sum_{\substack{i,j=1\\i\neq j}}^{k}\left|\mathcal{A}_{i}\bigcap\mathcal{A}_{j}\right|+\sum_{i,j,\ell=1}\left|\mathcal{A}_i\bigcup\right| \]
-	\end{proof}
+
+\[\left|\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\cdots\bigcup\mathcal{A}_k\right|=\sum_{i=1}^{k}{(-1)}^{i+1}{\left|\bigcap_{k=1}^{i}\mathcal{A}_{\tilde{t}}\right|}_{1\leq t_1\leq t_2\leq\cdots\leq t_i\leq k}\]
+
+$\dc$
+
+\begin{align*}
+\mathcal{A}_1 &= \{\text{ múltiplos }p_1\leq n \}, &|A_1|&=\frac{n}{p_1}&\\
+\mathcal{A}_2 &= \{\text{ múltiplos }p_2\leq n \}, &|A_2|&=\frac{n}{p_2}&\\
+\mathcal{A}_3 &= \{\text{ múltiplos }p_3\leq n \}, &|A_3|&=\frac{n}{p_3}&\\
+\vdots &= \vdots,&|A_1|&=\frac{n}{p_1}&\\
+\mathcal{A}_k &=\{ \text{ múltiplos }p_k\leq n \}, &|A_k|&=\frac{n}{p_k}&\\
+\end{align*}
+
+El conjunto $\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\mathcal{A}_3\bigcup\cdots\bigcup\mathcal{A}_k$ tiene algún factor común con $n$. Por lo tanto,  ${\left(\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\mathcal{A}_3\bigcup\cdots\bigcup\mathcal{A}_k\right)}^{\prime}\colon$elementos coprimos con $n$ y $\leq n$.
+
+$\implies \varphi(n)=\left|{\left(\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\mathcal{A}_3\bigcup\cdots\bigcup\mathcal{A}_k\right)}^{\prime}\right|=n-\left|\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\mathcal{A}_3\bigcup\cdots\bigcup\mathcal{A}_k\right|$
+
+Pero:
+
+\[\left|\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\mathcal{A}_3\bigcup\cdots\bigcup\mathcal{A}_k\right|=|\mathcal{A}_1|+|\mathcal{A}_2|+\cdots+|\mathcal{A}_k|-\left(\left|\mathcal{A}_1\bigcup\mathcal{A}_2\right|+\cdots+\left|\mathcal{A}_{k-1}\bigcup\mathcal{A}_k\right|\right)+\cdots+{(-1)}^{k+1}\left|\mathcal{A}_1\bigcap\mathcal{A}_2\bigcap\cdots\bigcap\mathcal{A}_k\right|
+\]
+
+El conjunto:
+\[\mathcal{A}_{i_1}\bigcap\mathcal{A}_{i_2}\bigcap\cdots\bigcap\mathcal{A}_{i_t}=\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_t}}\]
+
+\[\left|\mathcal{A}_1\bigcap\mathcal{A}_2\bigcap\cdots\bigcap\mathcal{A}_k\right|=\frac{n}{p_1}+\frac{n}{p_2}+\cdots+\frac{n}{p_k}-\left(\frac{n}{p_1p_2}+\cdots+\frac{n}{p_{k-1}p_{k}}\right)+\cdots+{(-1)}^{k-1}\left(\frac{n}{p_1p_2\cdots p_k}\right)%-1 a la k+1 también es equivalente.
+\]
+\begin{align*}
+\implies \varphi(n)
+&=n-\left|\mathcal{A}_1\bigcup\mathcal{A}_2\bigcup\cdots\bigcup\mathcal{A}_k\right|&\\
+&=n-\left(\frac{n}{p_1}+\frac{n}{p_2}+\cdots+\frac{n}{p_k}\right)+\left(\frac{n}{p_1p_2}+\cdots+\frac{n}{p_{k-1}p_k}\right)-+\cdots+{(-1)}^{k-1}\cdot\frac{n}{p_1p_2\cdots p_k}&\\
+\end{align*}
+
+\begin{align*}
+\varphi(n)
+&=n\prod_{i=1}^{n}\left(1-\frac{1}{p_i}\right)&\\
+&=n\prod_{\substack{p\divides n\\p\colon\text{primo}}}\left(1-\frac{1}{p}\right)&\\
+\end{align*}
+\end{proof}
+\end{theorem}
+
+\subsection{Algunas propiedades de la función indicador}
+
+\begin{enumerate}
+	\item $\varphi\left(p^{\alpha}\right)=p^{\alpha}-p^{\alpha-1}$
+	\item $\varphi\left(mn\right)=\varphi(m)\varphi(n)\left(\frac{d}{\varphi(d)}\right)$
+	\item $\varphi\left(mn\right)=\varphi(m)\varphi(n)$, si $\mcd(m,n)=1$.
+	\item Si $a\divides b$, entonces $\varphi(a)\divides\varphi(b)$.
+	\item $\varphi(n)$ es par para cada $n\geq3$. Más aún$\colon$
+	\[n={p}^{\alpha_1}_{1}{p}^{\alpha_2}_{2}\cdots{p}^{\alpha_k}_{k}\implies 2^{k}\divides\varphi(n)\]
+\end{enumerate}
+
+
+\section{Funciones multiplicativas}
+
+\begin{definition}
+Una función aritmética $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$ es llamada multiplicativa si $f$ no es idénticamente nula y si
+
+\[f(mn)=f(m)f(n)\quad\forall m,n\in\mathbb{Z}^{+},\quad\mcd(a,b)=1.\]
+
+\end{definition}
+
+\begin{definition}
+Una función multiplicativa $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$ es completamente multiplicativa si:
+
+\[f(mn)=f(m)f(n)\quad\forall m,n\in\mathbb{Z}^{+}.\]
+\end{definition}
+
+\begin{example}
+$\varphi(n)$ es multiplicativa, pero no es completamente multiplicativa $\forall n\in\mathbb{Z}^{+}$.
+\end{example}
+
+\begin{theorem}
+Si $f$ es multiplicativa, entonces $f(1)=1$.
+\begin{proof}
+\[\cancel{f(n)}=f(n\cdot1)\ddef \bcancel{f(n)}f(1)\implies f(1)=1.\]
+\end{proof}
+\end{theorem}
+
+\begin{theorem}
+Sea $f\colon\mathbb{Z}^{+}\rightarrow\mathbb{C}$ con $f(1)=1$.
+\begin{enumerate}
+	\item $f$ es multiplicativa $\iff f\left({p}^{\alpha_1}_{1}{p}^{\alpha_2}_{2}\cdots{p}^{\alpha_k}_{k}\right)=f\left({p}^{\alpha_1}_{1}\right)\cdot f\left({p}^{\alpha_2}_{2}\right)\cdot\cdots\cdot f\left({p}^{\alpha_k}_{k}\right)\quad\forall p_1p_2\cdots p_k$ primos y $\alpha_1,\alpha_2,\ldots,\alpha_k\leq1\in\mathbb{Z}^{+}$.
+	\item Si $f$ es multiplicativa, entonces
+
+	\[f \text{ es completamente multiplicativa }\iff f\left(p^{\alpha}\right)={\left(f(p)\right)}^{\alpha}\]
+	$\forall p\colon$ primo y $\tilde{\alpha}\in\mathbb{Z}^{+}$.
+\end{enumerate}
 \end{theorem}
