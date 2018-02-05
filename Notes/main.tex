@@ -45,3 +45,84 @@ Sean $\{a,b,c,x,y\}\subset\mathbb{Z}$, las siguientes proposiciones son verdader
 \section*{Algunos códigos}
 
 %\inputminted{python}{totient2.py}
+\section{Solución de la Ecuación multiplicativa de Cauchy}
+
+La función signo es denotada por $\sgn(x)$ y definida como
+\begin{align*}
+\sgn(x)=\begin{cases}
+1 & \text{si }x>0\\
+0 & \text{si }x=0\\
+-1 & \text{si }x<0.\\
+\end{cases}
+\end{align*}
+
+\begin{theorem}
+La solución general de la ecuación funcional multiplicativa, esto es,
+\[f(xy)=f(x)f(y),\]
+sosteniendo para todo $x,y\in\mathbb{R}$ está dada por
+\begin{align*}
+f(x) = 0,&\\
+f(x) = 1,&\\
+f(x) = \exp\left(A\left(\ln|x|\right)\right)|\sgn(x)|
+\end{align*}
+y
+\[f(x)=\exp\left(A\left(\ln|x|\right)\right)\sgn(x).\]
+donde $A\colon\mathbb{R}\rightarrow\mathbb{R}$ es una función aditiva y $e$ es la base neperiana de los logaritmos.
+\begin{proof}
+Sea $x=0=y$ en %\eqref{}
+,obtenemos $f(0)\left[1-f(0)\right]=0$ y por lo tanto
+
+\[f(0)=0\qquad\text{o}\qquad f(0)=1.\]
+
+Similarmente, sustituyendo $x=1=y$ en %\eqref{}
+,obtenemos  $f(1)\left[1-f(1)\right]=0$ y por lo tanto
+
+\[f(1)=0\qquad\text{o}\qquad f(1)=1.\]
+
+Sea $x$ un número real positivo, esto es $x>0$. Entonces %\eqref{}
+implica
+
+\[f(x)=f{\left(\sqrt{x}\right)}^{2}\geq0.\]
+
+Suponga que existe un $x_0\in\mathbb{R}, x_0\neq0$ de modo que $f(x_0)=0$. Sea $x\in\mathbb{R}$ un número real arbitrario. Entonces de %\eqref{}
+tenemos
+
+\[f(x)=f\left(x_0\frac{x}{x_0}\right)=f(x_0)f\left(\frac{x}{x_0}\right)=0\]
+
+para todo $x\in\mathbb{R}$ y obtenemos la solución %\solref(f(x)=0).
+
+De ahora en adelante, suponemos que $f(x)\neq0$ para todo $x\in\mathbb{R}^{\ast}$.
+
+De %\eqref{}
+tenemos cualquiera $f(0)=0$ o $f(0)=1$. Si $f(0)=1$, entonces fijando $y=0$ en %\eqref{2.3}
+, obtenemos
+
+\[f(0)=f(x)f(0)\]
+
+y se concluye
+\[f(x)=1,\]
+para todo $x\in\mathbb{R}$. Finalmente tenemos la solución acertada %\eqref{2.27}
+A continuación, consideremos el caso $f(0)=0$. En este caso podemos afirmar que $f$ es en ninguna parte 0. Suponga que no. Entonces, existe un $y_0$ en $\mathbb{R}^{\ast}$ tal que se verifica $f(y_0)=0$. Fijando $y=y_0$ en %\eqref{2.3}
+, obtenemos
+\[f(xy_0)=f(x)f(y_0)=0.\]
+Así
+\[f(x)=0\quad\forall x\in\mathbb{R}^{\ast}\]
+lo cual es una contradicción a nuestra suposición de que $f$ no es idénticamente cero. Por lo tanto, $f$ está en ninguna parte cero.
+
+Del hecho de que $f$ no está en ninguna parte 0 en $\mathbb{R}^{\ast}$ y %\eqref{2.32}
+, obtenemos
+
+\[f(x)>0\quad\text{para}\quad x>0.\]
+
+Sea
+\[x=e^{s}\quad\text{y}\quad y=e^{t}\]
+así que
+\[s=\ln x\quad\text{y}\quad t=\ln y.\]
+Note que $s,t\in\mathbb{R}$ dado que $x,y\in\mathbb{R}_{+}$. Sustituyendo % y 
+, obtenemos
+
+\[f\left(e^{s+t}\right)=f\left(c^{s}\right)f\left(e^{t}\right).\]
+
+Dado que $f(t)>0$ para todo $t>0$, tomando el logaritmo natural a ambos lados de la ecuación, tenemos
+\end{proof}
+\end{theorem}

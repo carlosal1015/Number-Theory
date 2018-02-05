@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[2017/01/01] % More information: https://www.latex-project.org/news/latex2e-news/
 \ProvidesClass{gemnumber}[16/01/2018 V2.0 clase de documento del Grupo Estudiantil de Matemática de la Facultad de Ciencias para el curso de Teoría de números]
 \LoadClass[oneside,a5paper]{memoir} % Clase heredado de memoir. % Se puede desarrollar chapter dentro de article.
-\RequirePackage[utf8x]{inputenc}
+\RequirePackage[utf8]{inputenc} % Not utf8x.
 \RequirePackage[T1]{fontenc}
 \RequirePackage{libertine}
 \RequirePackage[spanish]{babel}
