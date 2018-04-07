@@ -77,3 +77,4 @@ V.  Raíces primitivas
     2.  Raíces priitivas y el sistema reducido de residuos.
 
     3.  La no existencia de raíces primitivas módulo $2^{a}$
+VI
